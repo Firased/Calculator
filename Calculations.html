@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        body {
+            background-color: rgb(20, 76, 95);
+            color: rgb(255, 255, 255);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #333;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        li {
+            text-align: center;
+            padding: 16px;
+        }
+
+        li a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        .menu-icon {
+            margin-right: 10px;
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 16px;
+        }
+
+        .corner-image {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 10px;
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        /* Added styles for input squares */
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-container h1 {
+            margin-right: 10px;
+            text-align: right;
+        }
+
+        .input-container label {
+            display: none; /* Hide the label */
+        }
+
+        .input-container input {
+            width: 30px; /* Adjust the width as needed */
+            margin-right: 10px;
+        }
+
+        .input-container button {
+            margin-left: 10px;
+        }
+
+        .input-container #sumResult,
+        .input-container #differenceResult,
+        .input-container #productResult,
+        .input-container #quotientResult {
+            width: 50px; /* Adjust the width as needed */
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>
+            <a href="calcolutor.html">
+                <i class="fas fa-home menu-icon"></i>
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="calculations.html">
+                <i class="fas fa-info-circle menu-icon"></i>
+                Calculations
+            </a>
+        </li>
+        <li>
+            <a href="physics.html">
+                <i class="fas fa-cogs menu-icon"></i>
+                Physics
+            </a>
+        </li>
+        <li>
+            <a href="contact.html">
+                <i class="fas fa-envelope menu-icon"></i>
+                Contact
+            </a>
+        </li>
+    </ul>
+
+    <div class="content">
+        <h1 style="text-align: center;">Calculator</h1>
+        <h1>Calculations</h1>
+        <p>This is the Calculations area.</p>
+
+        <!-- Input squares for addition -->
+        <div class="input-container">
+            <h1>Plus +</h1>
+            <input type="text" id="userInput1">
+            <label for="userInput2">+</label>
+            <input type="text" id="userInput2">
+            <button onclick="calculateSum()">=</button>
+            <input type="text" id="sumResult" readonly>
+        </div>
+
+        <!-- Input squares for subtraction -->
+        <div class="input-container">
+            <h1>Minus -</h1>
+            <input type="text" id="userInput3">
+            <label for="userInput4">-</label>
+            <input type="text" id="userInput4">
+            <button onclick="calculateDifference()">=</button>
+            <input type="text" id="differenceResult" readonly>
+        </div>
+
+        <!-- Input squares for multiplication -->
+        <div class="input-container">
+            <h1>Multiply *</h1>
+            <input type="text" id="userInput5">
+            <label for="userInput6">*</label>
+            <input type="text" id="userInput6">
+            <button onclick="calculateProduct()">=</button>
+            <input type="text" id="productResult" readonly>
+        </div>
+
+        <!-- Input squares for division -->
+        <div class="input-container">
+            <h1>Divide /</h1>
+            <input type="text" id="userInput7">
+            <label for="userInput8">/</label>
+            <input type="text" id="userInput8">
+            <button onclick="calculateQuotient()">=</button>
+            <input type="text" id="quotientResult" readonly>
+        </div>
+    </div>
+    <img class="corner-image" src="images-removebg-preview.png" alt="Corner Image">
+
+    <script>
+        function calculateSum() {
+            var userInput1 = parseFloat(document.getElementById("userInput1").value) || 0;
+            var userInput2 = parseFloat(document.getElementById("userInput2").value) || 0;
+            var sumResult = userInput1 + userInput2;
+            document.getElementById("sumResult").value = sumResult;
+        }
+
+        function calculateDifference() {
+            var userInput3 = parseFloat(document.getElementById("userInput3").value) || 0;
+            var userInput4 = parseFloat(document.getElementById("userInput4").value) || 0;
+            var differenceResult = userInput3 - userInput4;
+            document.getElementById("differenceResult").value = differenceResult;
+        }
+
+        function calculateProduct() {
+            var userInput5 = parseFloat(document.getElementById("userInput5").value) || 0;
+            var userInput6 = parseFloat(document.getElementById("userInput6").value) || 0;
+            var productResult = userInput5 * userInput6;
+            document.getElementById("productResult").value = productResult;
+        }
+
+        function calculateQuotient() {
+            var userInput7 = parseFloat(document.getElementById("userInput7").value) || 0;
+            var userInput8 = parseFloat(document.getElementById("userInput8").value) || 0;
+            var quotientResult = userInput7 / userInput8;
+            document.getElementById("quotientResult").value = quotientResult;
+        }
+    </script>
+</body>
+</html>
